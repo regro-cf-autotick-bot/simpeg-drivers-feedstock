@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: simpeg-drivers
-  version: "0.4.0"
+  version: "0.5.0"
   python_min: '3.10'
   python_max: '3.12'
   module_name: ${{ name|lower|replace("-", "_") }}
@@ -12,8 +12,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.zip
-  sha256: c82f4e31575d0dc5f95b49be0b4e23802ca196310384a007db1a33fe3358b082
+  url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: e913e71b01c84d8898639d8d1151cfcb7d61a7b5e200705cfaed321d4d16e1f6
 
 build:
   number: 0
@@ -71,7 +71,7 @@ tests:
         - geoh5py
         - simpeg
       pip_check: true
-      
+
   - script:
       - pytest --ignore=tests/version_test.py --ignore=tests/run_tests --ignore=tests/plate_simulation
     requirements:
